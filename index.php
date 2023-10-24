@@ -27,6 +27,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +42,7 @@
                             echo "<td>".$row['id']."</td>";
                             echo "<td><a href='/show.php?book_id=".$row['id']."'>".$row['title']."</a></td>";
                             echo "<td>".$row['author']."</td>";
+                            echo "<td><a href='/edit.php?book_id=".$row['id']."'>Edit</a> | <a href='/delete.php?book_id=".$row['id']."'>Delete</a></td>";
                             echo "</tr>";
                         }
                         ?>
