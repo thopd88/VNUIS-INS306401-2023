@@ -1,11 +1,9 @@
--- 
 Steps to create database
 --
 - Create a database named bookproject
 - Create a table named books inside bookproject
 - Create columns in table books: id, title, year, author, publisher and set the id to primary key of the table
 
---
 index.php Listing all books
 --
 ```
@@ -25,7 +23,6 @@ while($row = mysqli_fetch_array($result))
 ?>
 ```
 
---
 show.php Show a single book
 --
 ```
@@ -54,6 +51,27 @@ else {
     // Show error and exit the script
     echo "Error: No book_id specified.";
     exit;
+}
+?>
+```
+
+create.php Show a form and create new book
+--
+```
+<?php
+// Create connection to MySQL database via connection.php
+include_once("connection.php");
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $category = $_POST['category'];
+    $year = $_POST['year'];
+    $publisher = $_POST['publisher'];
+    // Insert data into table
+    $result = mysqli_query($connection, "INSERT INTO books(title,author,category,year,publisher) VALUES('$title','$author','$category','$year','$publisher')");
+    // Show message when user added
+    echo "Book added successfully. <a href='index.php'>View Books</a>";
 }
 ?>
 ```
