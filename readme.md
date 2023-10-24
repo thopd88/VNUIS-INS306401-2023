@@ -75,3 +75,24 @@ if (isset($_POST['submit'])) {
 }
 ?>
 ```
+
+edit.php Edit a record based on book id
+--
+```
+// Create connection to MySQL database via connection.php
+include_once("connection.php");
+// Get the id from URL
+$book_id = $_GET['book_id'];
+
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $year = $_POST['year'];
+    $publisher = $_POST['publisher'];
+    // Update data into table
+    $result = mysqli_query($connection, "UPDATE books SET title='$title',author='$author',year='$year',publisher='$publisher' WHERE id=$book_id");
+    // Show message
+    echo "Book updated successfully. <a href='index.php'>View Books</a>";
+}
+```
