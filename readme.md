@@ -1,0 +1,6 @@
+--
+-- Steps to create database
+--
+- Create a database named bookproject
+- Create a table named books inside bookproject
+- Create columns in table books: id, title, year, author, publisher and set the id to primary key of the table
