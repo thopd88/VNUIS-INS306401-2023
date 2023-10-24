@@ -1,9 +1,13 @@
--- Steps to create database
+-- 
+Steps to create database
+--
 - Create a database named bookproject
 - Create a table named books inside bookproject
 - Create columns in table books: id, title, year, author, publisher and set the id to primary key of the table
 
--- index.php Listing all books
+--
+index.php Listing all books
+--
 ```
 <?php
 // Include connection.php file
@@ -17,6 +21,39 @@ while($row = mysqli_fetch_array($result))
     echo "<td><a href='/show.php?book_id=".$row['id']."'>".$row['title']."</a></td>";
     echo "<td>".$row['author']."</td>";
     echo "</tr>";
+}
+?>
+```
+
+--
+show.php Show a single book
+--
+```
+<?php
+// Create connection if $_GET['book_id'] is set
+if (isset($_GET['book_id'])){
+    // Create connection to MySQL database via connection.php
+    include_once("connection.php");
+    // Get the book_id from the URL parameter: ?book_id=2
+    $book_id = $_GET['book_id'];
+    // Fetch data from database based on book_id
+    $sql = "SELECT * FROM books WHERE id=$book_id";
+    // Execute query and get result object
+    $result = mysqli_query($connection, $sql);
+    // Check if the result is empty then show the error message and exit the script
+    if (mysqli_num_rows($result) == 0) {
+        echo "Error: No book found.";
+        exit;
+    }
+    // Fetch record from result object and return as an associative array
+    $book = mysqli_fetch_assoc($result);
+    // close connection
+    mysqli_close($connection);
+}
+else {
+    // Show error and exit the script
+    echo "Error: No book_id specified.";
+    exit;
 }
 ?>
 ```
