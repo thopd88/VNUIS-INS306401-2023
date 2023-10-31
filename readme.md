@@ -1,3 +1,11 @@
+Show author name base on author_id save in books table
+--
+```
+$author = mysqli_query($connection, "SELECT * FROM authors WHERE id=".$row['author_id']);
+$author_name = mysqli_fetch_array($author)['name'];
+echo "<td>".$author_name."</td>";
+```
+
 Modify database to link books to authors
 --
 ```

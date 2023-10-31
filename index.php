@@ -41,7 +41,9 @@
                             echo "<tr>";
                             echo "<td>".$row['id']."</td>";
                             echo "<td><a href='/show.php?book_id=".$row['id']."'>".$row['title']."</a></td>";
-                            echo "<td>".$row['author']."</td>";
+                            $author = mysqli_query($connection, "SELECT * FROM authors WHERE id=".$row['author_id']);
+                            $author_name = mysqli_fetch_array($author)['name'];
+                            echo "<td>".$author_name."</td>";
                             echo "<td><a href='/edit.php?book_id=".$row['id']."'>Edit</a> | <a href='/delete.php?book_id=".$row['id']."'>Delete</a></td>";
                             echo "</tr>";
                         }
