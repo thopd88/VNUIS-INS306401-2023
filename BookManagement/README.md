@@ -5,6 +5,18 @@ composer create-project laravel/laravel BookManagement
 ```
 You should install Composer if needed
 
+Go to the newly created folder
+-
+```
+cd BookManagement
+```
+
+Open the Visual Studio Code
+-
+```
+code .
+```
+
 Modify the .env
 -
 ```
