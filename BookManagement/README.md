@@ -42,3 +42,17 @@ Create Model Book with migration
 ```
 php artisan make:model Book -m
 ```
+
+Add to create_books_table (migration)
+-
+```
+$table->string('title');
+$table->string('author');
+$table->string('publisher');
+```
+
+Run migrate again to update the database
+-
+```
+php artisan migrate
+```
