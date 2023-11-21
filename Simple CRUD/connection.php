@@ -1,6 +1,6 @@
 <?php
 // Create connection to MySQL database
-$connection = mysqli_connect("localhost","root","root","bookproject");
+$connection = mysqli_connect("localhost","root","root","book_new");
 // Check connection
 if (mysqli_connect_errno())
   {
