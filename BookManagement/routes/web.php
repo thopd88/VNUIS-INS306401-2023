@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    Book::create([
+        'title' => 'The Great Gatsby',
+        'author' => 'F. Scott Fitzgerald',
+        'publisher' => 'Charles Scribner\'s Sons'
+    ]);
+    return Book::all();
 });
