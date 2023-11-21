@@ -30,3 +30,9 @@ Run the project
 ```
 php artisan serve
 ```
+
+Migrate Database (testing the connection)
+-
+```
+php artisan migrate
+```
