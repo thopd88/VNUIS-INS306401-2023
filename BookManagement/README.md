@@ -56,3 +56,14 @@ Run migrate again to update the database
 ```
 php artisan migrate
 ```
+
+Add to Book model
+-
+```
+protected $table = "books";
+protected $fillable = [
+    'title',
+    'author',
+    'publisher'
+];
+```
