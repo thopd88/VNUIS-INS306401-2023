@@ -36,3 +36,9 @@ Migrate Database (testing the connection)
 ```
 php artisan migrate
 ```
+
+Create Model Book with migration
+-
+```
+php artisan make:model Book -m
+```
