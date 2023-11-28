@@ -83,3 +83,28 @@ Remember to add
 ```
 use App\Http\Controllers\BookController;
 ```
+
+Create Views
+-
+index
+--
+Create file ```index.blade.php``` in folder ```resources\views```
+Call this view from BookController
+```
+public function index()
+{
+    $books = Book::all();
+    return view('index', compact('books'));
+}
+```
+Add to ```index.blade.php```
+```
+@foreach($books as $book)
+    <tr>
+        <td>{{$book->id}}</td>
+        <td>{{$book->title}}</td>
+        <td>{{$book->author}}</td>
+        <td>{{$book->publisher}}</td>
+    </tr>
+@endforeach
+```
