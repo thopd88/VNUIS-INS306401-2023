@@ -67,3 +67,19 @@ protected $fillable = [
     'publisher'
 ];
 ```
+
+Create BookController
+-
+```
+php artisan make:controller BookController --resource
+```
+
+Add Books to Route/web.php
+-
+```
+Route::resource('books', BookController::class);
+```
+Remember to add
+```
+use App\Http\Controllers\BookController;
+```
