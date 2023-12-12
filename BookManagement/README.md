@@ -108,3 +108,29 @@ Add to ```index.blade.php```
     </tr>
 @endforeach
 ```
+
+create
+--
+Create a view name ```create.blade.php``` in folder ```resources\views```
+Call this view from BookController
+```
+return view('create');
+```
+In ```create.blade.php``` we will have a form to input new book
+```
+<form action="/books" method="POST">
+    @csrf
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="author" placeholder="Author">
+    <input type="text" name="publisher" placeholder="Publisher">
+    <button type="submit">Add Book</button>
+</form>
+```
+
+store
+--
+This function will receive request and store to database
+```
+Book::create($request->all());
+return redirect()->route('books.index');
+```
